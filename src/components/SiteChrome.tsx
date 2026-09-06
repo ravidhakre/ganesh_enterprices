@@ -50,7 +50,21 @@ function Footer() {
     <div className="mx-auto grid max-w-7xl gap-12 px-6 py-14 sm:grid-cols-2 lg:grid-cols-[1.3fr_0.7fr_1fr_1.25fr] lg:px-8">
       <div><BrandLogo variant="footer" /><p className="mt-5 max-w-xs text-sm leading-7 text-slate-400" data-testid="footer-intro">Your trusted partner for transparent loans, business funding and practical financial guidance. Built on relationships, not paperwork.</p><div className="mt-5 inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-amber-400/10 px-3 py-1.5 text-xs font-bold text-amber-300" data-testid="footer-trust-badge">✦ 20+ years of trust</div></div>
       <div><h3 className="font-heading text-sm font-bold text-white" data-testid="footer-links-heading">Explore</h3><div className="mt-4 space-y-3 text-sm">{navItems.map((item) => <Link key={item.to} to={item.to} className="block transition-colors hover:text-sky-300" data-testid={`footer-${item.label.toLowerCase().replace(" ", "-")}-link`}>{item.label}</Link>)}<Link to="/apply" className="block font-semibold text-sky-300" data-testid="footer-apply-link">Apply Now <ArrowUpRight className="ml-1 inline size-3" /></Link></div></div>
-      <div><h3 className="font-heading text-sm font-bold text-white" data-testid="footer-products-heading">Loan solutions</h3><div className="mt-4 grid grid-cols-2 gap-y-3 text-sm text-slate-400">{["Personal Loan", "Business Loan", "Instant Loan", "Home Loan", "LAP Funding", "Credit Cards", "FD Card", "Private Funding"].map((item, index) => <span key={item} data-testid={`footer-product-${index + 1}`}>{item}</span>)}</div></div>
+      <div><h3 className="font-heading text-sm font-bold text-white" data-testid="footer-products-heading">Loan solutions</h3><div className="mt-4 grid grid-cols-2 gap-x-4 gap-y-3 text-sm">{[
+        { name: "Personal Loan", to: "/loans" },
+        { name: "Business Loan", to: "/loans" },
+        { name: "Instant Loan", to: "/apply" },
+        { name: "Home Loan", to: "/loans" },
+        { name: "LAP Funding", to: "/loans" },
+        { name: "Credit Cards", to: "/apply" },
+        { name: "FD Card", to: "/apply" },
+        { name: "Private Funding", to: "/loans" }
+      ].map((item, index) => (
+        <Link key={item.name} to={item.to} className="group flex items-center gap-2 text-slate-400 transition-colors duration-200 hover:text-sky-300" data-testid={`footer-product-${index + 1}`}>
+          <span className="size-1.5 shrink-0 rounded-full bg-sky-500/70 transition-all duration-200 group-hover:scale-125 group-hover:bg-sky-300" />
+          <span className="truncate">{item.name}</span>
+        </Link>
+      ))}</div></div>
       <div><h3 className="font-heading text-sm font-bold text-white" data-testid="footer-contact-heading">Visit our office</h3><p className="mt-4 text-sm leading-6 text-slate-400" data-testid="footer-address">Ganesh Enterprises<br />Mall Road Ferozepur City,<br />Punjab - 152002</p><a href="tel:+918558900022" className="mt-4 block text-sm font-semibold text-sky-300" data-testid="footer-phone-link">+91 8558900022</a><a href="mailto:fzrganeshenterprises@gmail.com" className="mt-2 block break-all text-sm text-slate-400 hover:text-white" data-testid="footer-email-link">fzrganeshenterprises@gmail.com</a></div>
     </div>
     <div className="border-t border-white/10"><div className="mx-auto flex max-w-7xl flex-col gap-2 px-6 py-5 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between lg:px-8"><span data-testid="footer-copyright">© 2026 Ganesh Enterprises. All rights reserved.</span><span data-testid="footer-disclaimer">Loan approval is subject to eligibility, documentation and partner policies.</span></div></div>
